@@ -1,0 +1,90 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Postman Echo",
+		"_postman_id": "f695cab7-6878-eb55-7943-ad88e1ccfd65",
+		"description": "Postman Echo is service you can use to test your REST clients and make sample API calls. It provides endpoints for `GET`, `POST`, `PUT`, various auth mechanisms and other utility endpoints.\n\nThe documentation for the endpoints as well as example responses can be found at [https://postman-echo.com](https://postman-echo.com/?source=echo-collection-app-onboarding)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "ws",
+			"description": "",
+			"item": [
+				{
+					"name": "post - create",
+					"request": {
+						"url": "http://localhost:8080/get-ws/ws/create",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"id\":10,\"nome\":\"Silmar\"}"
+						},
+						"description": "salva objeto "
+					},
+					"response": []
+				},
+				{
+					"name": "get - list",
+					"request": {
+						"url": "http://localhost:8080/get-ws/ws/list",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": "listar todos os objetos"
+					},
+					"response": []
+				},
+				{
+					"name": "get - find",
+					"request": {
+						"url": "http://localhost:8080/get-ws/ws/find/4",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": "buscar um objeto"
+					},
+					"response": []
+				},
+				{
+					"name": "delete - delete",
+					"request": {
+						"url": "http://localhost:8080/get-ws/ws/delete/4",
+						"method": "DELETE",
+						"header": [],
+						"body": {},
+						"description": "deletar um objeto"
+					},
+					"response": []
+				},
+				{
+					"name": "post - update",
+					"request": {
+						"url": "http://localhost:8080/get-ws/ws/update",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"id\":1,\"nome\":\"Joao Alexandre\"}"
+						},
+						"description": "update em um objeto"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
