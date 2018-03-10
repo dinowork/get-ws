@@ -15,23 +15,23 @@ import javax.ws.rs.core.MediaType;
 
 import br.com.model.WebServiceModel;
 
-
 @Path("/ws")
 public class WebServiceController {
 	List <WebServiceModel> web = null;
-	
+
+	/* CHAMADAS JSON  */
 
 	@GET
 	@Path("/list")
 	@Produces(MediaType.APPLICATION_JSON)
-	public List<WebServiceModel> list(){	
+	public List<WebServiceModel> listJson(){	
 		return web;
 	}
 	
 	@GET
 	@Path("/find/{id}")
-	@Produces("application/json")
-	public WebServiceModel find(@PathParam("id") int id){
+	@Produces(MediaType.APPLICATION_JSON)
+	public WebServiceModel findJson(@PathParam("id") int id){
 		WebServiceModel obj = null;		
 		for (WebServiceModel webServiceModel : web) {
 			if(webServiceModel.getId() == id) {
@@ -43,8 +43,8 @@ public class WebServiceController {
 	
 	@DELETE
 	@Path("/delete/{id}")	
-	@Produces("application/json")
-	public List<WebServiceModel> delete(@PathParam("id") int id){
+	@Produces(MediaType.APPLICATION_JSON)
+	public List<WebServiceModel> deleteJson(@PathParam("id") int id){
 		WebServiceModel obj = null;		
 		for (WebServiceModel webServiceModel : web) {
 			if(webServiceModel.getId() == id) {
@@ -53,27 +53,27 @@ public class WebServiceController {
 			} 
 		}		
 		web.remove(obj);
-		return list();	
+		return listJson();	
 	}
 	
 	@POST
 	@Path("/create")
-	@Consumes("application/json")
-	public List<WebServiceModel> create(WebServiceModel ws){				
+	@Consumes(MediaType.APPLICATION_JSON)
+	public List<WebServiceModel> createJson(WebServiceModel ws){				
 		web.add(ws);
 		return web;
 	}	
 
 	@PUT
 	@Path("/update")
-	@Consumes("application/json")
-	public List<WebServiceModel> update(WebServiceModel ws){		
-		delete(ws.getId());
+	@Consumes(MediaType.APPLICATION_JSON)
+	public List<WebServiceModel> updateJson(WebServiceModel ws){		
+		deleteJson(ws.getId());
 		web.add(ws);
 		return web;
 	}
 	
-	// Criar List de Objetos	
+	// LIST PARA JSON E XML
 	public WebServiceController() {
 		
 		web = new ArrayList<WebServiceModel>();
